@@ -1,6 +1,6 @@
 """
-Author: Christiaan Korte
-Student number: 473314
+Author: Christiaan K
+Student number: ******
 Univerity: Erasmus University Rotterdam - Rotterdam School of Management
 Degree: MSc Finance & Investments
 Course: FI master thesis (BMMTFI)
