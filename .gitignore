@@ -3,7 +3,7 @@
 *.zip
 *.json
 /venv
-
+*.xlsx
 
 # --- Github boilerplate ---
 # Byte-compiled / optimized / DLL files

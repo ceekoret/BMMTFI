@@ -13,13 +13,13 @@ df = pd.DataFrame.from_dict(data, orient='index', columns=['average_holders', 'v
 df["bins"] = pd.cut(df['average_holders'], [0,500,2500,12500,60000])
 # df["bins"] = pd.cut(df['average_holders'], [0,5000,10000,50000])
 
-df["bins"].value_counts().plot.bar()
-plt.xlabel('number of holders')
-plt.ylabel('number of firms')
-plt.title("avg_holder distribution")
-plt.xticks(rotation=0)
-
-plt.show()
+# df["bins"].value_counts().plot.bar()
+# plt.xlabel('number of holders')
+# plt.ylabel('number of firms')
+# plt.title("avg_holder distribution")
+# plt.xticks(rotation=0)
+#
+# plt.show()
 
 # Remove stocks with less than 100 holders
 df = df[df['average_holders'] > 100]
@@ -31,10 +31,10 @@ df = df[df['normalised'] > df['normalised'].quantile(0.01)]
 
 
 print(df)
-print(df['average_holders'].nlargest(20))
-
-print(df.nlargest(200, 'normalised'))
-print(df['normalised'].mean())
+print(df['average_holders'].nlargest(10))
+exit()
+# print(df.nlargest(200, 'normalised'))
+# print(df['normalised'].mean())
 
 
 # plt.scatter(df['variance'], df['average_holders'])

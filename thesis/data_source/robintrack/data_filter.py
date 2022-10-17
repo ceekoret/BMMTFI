@@ -4,14 +4,11 @@ Hence we will be filtered and adjust some of this data with the code in this fil
 """
 import os
 import pandas as pd
+from thesis.tools import FileTools
 pd.set_option('display.max_rows', 500)
 
 
-def adjust_time():
-    return ""
-
-
-def filter_data(filedir):
+def filter_data(filedir, filteredfile_dir):
     """
     The Robintrack data set contains irrelevant data points. These data points are measured outside trade times.
     This can be the case either
@@ -34,12 +31,11 @@ def filter_data(filedir):
 
         # checking if it is a file
         if os.path.isfile(csv_path):
-            print(csv_path)
+            print(f"Now filtering data for Robintrack file: {filename}")
 
             # Create dataframe and make sure timestamp is read as datetime
             df = pd.read_csv(csv_path)
             df['timestamp'] = pd.to_datetime(df['timestamp'], errors='coerce')
-            print(len(df.index))
 
             # Round datetime to nearest hour.
             # 05:30:00 --> 5:00:00
@@ -56,19 +52,24 @@ def filter_data(filedir):
             # - greater than 20:00 (UTC)
             df = df[(df['hour'] >= "13:00") & (df['hour'] <= "20:00")]
 
+            """
+            Robintrack seems to have had periods where there program ran into some errors.
+            These errors resulted in apparent:
+            - over activity: too many measurements were done --> Solution: removing duplicates
+            - under activity: little or no measurements were done --> Solution: adding missing values
+            """
+            # Remove duplicates.
+            df = df.drop_duplicates(subset=['hour', 'date'], keep='last')
 
-            # TO DO
-            # Remove duplicates
-            # Treat missing values
-            # df.sort_values('users_holding').drop_duplicates(subset=['hour', 'date'], keep='last')
-            # print(df.groupby('date').size().head(300))
+            # If you want to end up with hourly data, then missing values need to be added.
+            # ToDo... Missing values
 
-            print(len(df.index))
-            df.groupby(['date', 'hour']).drop_duplicates(['date', 'hour'], keep='first')
-            print(len(df.index))
+            # Else, if you want daily data you need average user count of each day:
+            df = df.groupby(['date']).mean().round().astype(int)
 
-            # print(df[['timestamp', 'hour', 'date', 'dayname', 'users_holding']].iloc[100:200])
+            save_location = f"{filteredfile_dir}/{filename}"
+            FileTools.df_to_csv(df, save_location)
 
-            exit()
+
 
 
