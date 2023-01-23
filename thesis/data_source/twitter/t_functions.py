@@ -12,3 +12,4 @@ def query_builder(ticker, company_name=None):
 
     return query
 
+

@@ -16,3 +16,4 @@ class Twitter:
     @staticmethod
     def test():
         print("test123")
+
