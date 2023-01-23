@@ -25,6 +25,8 @@ robintrack = t.Robintrack(robintrack_data_folder)
 TAQ_data_folder = r"C:/Users/Ck0rt/Documents/Large files/School/MSc Finance & Investments/Thesis/TAQ"
 TAQ = t.TAQ(TAQ_data_folder)
 
+twitter = t.Twitter()
+
 # --- Robintrack ---
 # robintrack.filter_data()
 # robintrack.analyse_data()
@@ -34,6 +36,9 @@ TAQ = t.TAQ(TAQ_data_folder)
 
 # TAQ.flatten_csv()
 TAQ.analyse_data()
+
+# --- Twitter ---
+twitter.loop_tweet_collection(save=False)
 
 
 
