@@ -35,7 +35,7 @@ twitter = t.Twitter()
 # robintrack.filter_data()
 
 # TAQ.flatten_csv()
-TAQ.analyse_data()
+# TAQ.analyse_data()
 
 # --- Twitter ---
 twitter.loop_tweet_collection(save=False)
