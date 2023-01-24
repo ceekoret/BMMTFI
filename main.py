@@ -20,10 +20,12 @@ import thesis as t
 # path to Robintrack csv folder
 # robintrack_data_folder = r"C:/Users/Ck0rt/Documents/Large files/School/MSc Finance & Investments/Thesis/Robintrack/popularity_export"
 robintrack_data_folder = r"data/robintrack/popularity_export"
-robintrack = t.Robintrack(robintrack_data_folder)
+robintrack = t.Robck(robintrack_data_folder)
 
 TAQ_data_folder = r"C:/Users/Ck0rt/Documents/Large files/School/MSc Finance & Investments/Thesis/TAQ"
 TAQ = t.TAQ(TAQ_data_folder)
+
+twitter = t.Twitter()
 
 # --- Robintrack ---
 # robintrack.filter_data()
@@ -34,6 +36,9 @@ TAQ = t.TAQ(TAQ_data_folder)
 
 # TAQ.flatten_csv()
 TAQ.analyse_data()
+
+# --- Twitter ---
+twitter.loop_tweet_collection(save=False)
 
 
 
