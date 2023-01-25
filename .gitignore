@@ -5,6 +5,7 @@
 *.json
 *.xml
 /venv
+/API_KEYS
 *.xlsx
 /.idea/
 
