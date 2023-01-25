@@ -15,6 +15,7 @@ bearer_token = twitter_keys.bearer_token
 client = tweepy.Client(bearer_token=bearer_token, wait_on_rate_limit=True)
 # ticker_list = ['TSLA', 'MU', 'SNAP', 'AMD', 'DIS', 'MSFT', 'AAPL', 'AMZN', 'SQ', 'BABA', 'V', 'NFLX', 'IQ', 'ATVI', 'SHOP', 'BA', 'NVDA', 'GE', 'WMT', 'SBUX', 'F', 'TLRY', 'LULU', 'BAC', 'GME']
 
+
 """
 The following variables are used:
 @start_time is both the starting moment for 

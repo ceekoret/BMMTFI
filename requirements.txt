@@ -33,3 +33,4 @@ websocket-client==1.4.2
 wrds==3.1.2
 XlsxWriter==3.0.3
 zipp==3.11.0
+
