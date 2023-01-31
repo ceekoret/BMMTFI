@@ -1,11 +1,16 @@
 # --- Personal ---
 /API_KEYS
 /data
+/Scripts
+/Lib
+/share
+/Include
 *.zip
 *.json
 *.xml
+*.cfg
+.ipynb_checkpoints
 /venv
-/API_KEYS
 *.xlsx
 /.idea/
 

@@ -77,7 +77,7 @@ def filter_data(filedir, filteredfile_dir):
             df['total_vol'] = df['buy_vol'] + df['sell_vol']
 
             # ToDo total_bs and total_vol needs to be rolling average
-            rolling_window = 3
+            rolling_window = 5
             df['bs_change'] = (df['buy'] - df['sell']) / df['total_bs'].rolling(rolling_window).mean()
             df['vol_change'] = (df['buy_vol'] - df['sell_vol']) / df['total_vol'].rolling(rolling_window).mean()
             df['bs_change'] = df['bs_change'].round(4)
