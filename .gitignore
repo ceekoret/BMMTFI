@@ -9,6 +9,7 @@
 *.json
 *.xml
 *.cfg
+*.csv
 .ipynb_checkpoints
 /venv
 *.xlsx
